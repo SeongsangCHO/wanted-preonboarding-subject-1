@@ -3,18 +3,16 @@ import "./App.css";
 import { getCommentData } from "./api/getCommentData";
 import useIntersectObserver from "./hooks/useIntersectObserver";
 import InfiniteScroll from "./components/InfiniteScroll";
-/*
-! data fetching done
-! 스크롤 맨 밑에 다다랐을 때, 다음 페이지 넘버를 갖게되는 hook
-! 피그마 디자인 퍼블리싱
-*/
 
 function App() {
   const [page, setPage] = useState(1);
   const [commentList, setCommentList] = useState([]);
   const intersectRef = useRef(null);
   const [isLastPage, setIsLastPage] = useState(false);
-  const { isIntersect } = useIntersectObserver(intersectRef);
+  const { isIntersect } = useIntersectObserver(intersectRef, {
+    rootMargin: "200px",
+    threshold: 0.01,
+  });
 
   const loadMoreCommentData = async () => {
     if (isIntersect) {

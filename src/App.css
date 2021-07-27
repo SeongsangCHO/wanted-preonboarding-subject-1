@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 33px;
+  margin: 33px 0;
 }
 
 .comment-wrapper {
@@ -26,4 +26,8 @@
 .inline h4 {
   display: inline-block;
   margin-right: 12px;
+}
+
+#intersectElement {
+  margin-top: 33px;
 }

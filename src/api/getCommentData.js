@@ -7,7 +7,7 @@ const LIMIT = 10;
  * _limit = 10 fix
  */
 
-const getCommentData = async (page) => {
+export const getCommentData = async (page) => {
   try {
     const res = await axios.get(`${API_ENDPOINT}`, {
       params: {
@@ -16,6 +16,7 @@ const getCommentData = async (page) => {
       },
     });
     console.log(res.data);
+    return res.data;
   } catch (error) {
     console.error(error);
   }

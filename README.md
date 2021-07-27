@@ -19,7 +19,8 @@ npm start
 
 ## 프로젝트 구조 설명
 
-![프로젝트 폴더 구조](https://user-images.githubusercontent.com/55486644/127091128-3794c3b9-1058-422a-a8ea-7c77a893a78e.png)
+
+![프로젝트 폴더 구조](https://user-images.githubusercontent.com/55486644/127165883-eb76827f-1534-4ec1-8a88-8be22c1f5efa.png)
 
 
 📂 src > api > `getCommentData.js` : Data Fetch API 호출 함수
@@ -28,11 +29,14 @@ npm start
 
 📂 src > hooks > `useIntersectObserver.js` : Intesection Observer를 활용한 Custom Hook
 
+📂 src > constants > `index.js` : 상수 저장 파일
+
 📂 src > `App.js` : Infinite Scroll 컨테이너
 
 📂 src > `App.css` : 전체 스타일 css 파일
 
 📂 src > `index.css` : global reset css 파일
+
 
 ## 배포 주소 및 기능 영상
 
@@ -41,3 +45,7 @@ npm start
 ![시연영상](https://user-images.githubusercontent.com/55486644/127104606-a392008e-9c30-4f04-b523-d04a8cf54c8e.gif)
 
 ## 과제 후기
+
+- 👨🏻‍💻 [조성상](https://github.com/SeongsangCHO) : [Infinite Scroll 구현 (feat. pair Programming)](https://watermelonlike.tistory.com/157)
+
+- 👩🏻‍💻 [강보현](https://github.com/bohyunkang) : [[프리온보딩코스 과제 회고 #1] 무한 스크롤(Infinite Scroll)](https://bohyunkang.tistory.com/8)

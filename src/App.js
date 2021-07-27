@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { getCommentData } from "./api/getCommentData";
 /*
@@ -10,10 +10,20 @@ import { getCommentData } from "./api/getCommentData";
 function App() {
   const [page, setPage] = useState(1);
   const [commentList, setCommentList] = useState([]);
+  const intersectRef = useRef(null);
   useEffect(async () => {
     const data = await getCommentData(page);
     setCommentList([...commentList, ...data]);
+    console.log(intersectRef.current);
   }, [page]);
+
+  const handleObserver = () => {
+    console.log("hi");
+  };
+  const options = {};
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleObserver, options);
+  });
   return (
     <>
       <div id="container">
@@ -39,7 +49,9 @@ function App() {
             );
           })}
         </ul>
-        <div id="intersectElement">intersect</div>
+        <div id="intersectElement" ref={intersectRef}>
+          intersect
+        </div>
       </div>
     </>
   );

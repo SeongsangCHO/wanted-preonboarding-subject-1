@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { getCommentData } from "./api/getCommentData";
 import useIntersectObserver from "./hooks/useIntersectObserver";
@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <InfiniteScroll data={commentList}></InfiniteScroll>
+        <InfiniteScroll data={commentList} />
         <div id="intersectElement" ref={intersectRef}>
           Loading...
         </div>

@@ -1,4 +1,4 @@
 const API_ENDPOINT = `https://jsonplaceholder.typicode.com/comments`;
-const PAGE_LIMIT = 10;
+const COMMENT_DATA_MAXIMUM_COUNT = 10;
 
-export { API_ENDPOINT, PAGE_LIMIT };
+export { API_ENDPOINT, COMMENT_DATA_MAXIMUM_COUNT };

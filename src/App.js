@@ -13,21 +13,32 @@ function App() {
   const [page, setPage] = useState(1);
   const [commentList, setCommentList] = useState([]);
   const intersectRef = useRef(null);
+  const [isLastPage, setIsLastPage] = useState(false);
   const { isIntersect } = useIntersectObserver(intersectRef);
 
-  useEffect(async () => {
+  const loadMoreCommentData = async () => {
     if (isIntersect) {
       const data = await getCommentData(page);
-      setCommentList([...commentList, ...data]);
-      setPage((prev) => prev + 1);
+
+      if (data.length === 0) {
+        setIsLastPage(true);
+      } else {
+        setCommentList([...commentList, ...data]);
+        setPage((prev) => prev + 1);
+      }
     }
-  }, [isIntersect]);
+  };
+  useEffect(() => {
+    loadMoreCommentData();
+  }, [isIntersect, isLastPage]);
   return (
     <div className="container">
       <InfiniteScroll data={commentList} />
-      <div id="intersectElement" ref={intersectRef}>
-        Loading...
-      </div>
+      {!isLastPage && (
+        <div id="intersectElement" ref={intersectRef}>
+          Loading...
+        </div>
+      )}
     </div>
   );
 }

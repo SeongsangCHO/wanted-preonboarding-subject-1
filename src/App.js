@@ -23,14 +23,12 @@ function App() {
     }
   }, [isIntersect]);
   return (
-    <>
-      <div className="container">
-        <InfiniteScroll data={commentList} />
-        <div id="intersectElement" ref={intersectRef}>
-          Loading...
-        </div>
+    <div className="container">
+      <InfiniteScroll data={commentList} />
+      <div id="intersectElement" ref={intersectRef}>
+        Loading...
       </div>
-    </>
+    </div>
   );
 }
 

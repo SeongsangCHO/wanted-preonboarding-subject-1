@@ -34,6 +34,10 @@ npm start
 
 📂 src > `index.css` : global reset css 파일
 
-## 배포 주소 및 기능별 영상
+## 배포 주소 및 기능 영상
+
+🔗 배포 주소: https://seongsangcho.github.io/wanted-preonboarding-subject-1
+
+![시연영상](https://user-images.githubusercontent.com/55486644/127104606-a392008e-9c30-4f04-b523-d04a8cf54c8e.gif)
 
 ## 과제 후기

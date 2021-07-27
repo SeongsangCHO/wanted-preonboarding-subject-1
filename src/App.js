@@ -19,6 +19,7 @@ function App() {
       const data = await getCommentData(page);
 
       if (data.length === 0) {
+        //요청 페이지 데이터를 모두 load해,  더 이상 가져올 데이터가 없을 때 == 마지막 페이지 임을 알리는 state
         setIsLastPage(true);
       } else {
         setCommentList([...commentList, ...data]);

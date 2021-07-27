@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const useIntersectObserver = (intersectRef, optionsObject) => {
+  // IntersectObserver의 option들을 지정하지 않는 경우를 대비해 root, margin을 default로 지정 [재사용성을 고려]
   const { root = null, rootMargin = "0px", threshold } = optionsObject;
 
   const [isIntersect, setIsIntersect] = useState(false);

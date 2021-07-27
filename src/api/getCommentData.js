@@ -1,18 +1,12 @@
 import axios from "axios";
-
-const API_ENDPOINT = `https://jsonplaceholder.typicode.com/comments`;
-const LIMIT = 10;
-/*
- * _page = 1.. ++
- * _limit = 10 fix
- */
+import { API_ENDPOINT, PAGE_LIMIT } from "../constants";
 
 export const getCommentData = async (page) => {
   try {
     const res = await axios.get(`${API_ENDPOINT}`, {
       params: {
         _page: page,
-        _limit: LIMIT,
+        _limit: PAGE_LIMIT,
       },
     });
     return res.data;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./App.css";
 import { getCommentData } from "./api/getCommentData";
 /*
@@ -8,22 +8,32 @@ import { getCommentData } from "./api/getCommentData";
 */
 
 function App() {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [commentList, setCommentList] = useState([]);
   const intersectRef = useRef(null);
   useEffect(async () => {
     const data = await getCommentData(page);
     setCommentList([...commentList, ...data]);
-    console.log(intersectRef.current);
+    console.log(page);
   }, [page]);
 
-  const handleObserver = () => {
-    console.log("hi");
+  const handleObserver = useCallback(async (entries) => {
+    const target = entries[0];
+    if (target.isIntersecting) {
+      console.log("is intersect");
+      setPage((prev) => prev + 1);
+    }
+  }, []);
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.01,
   };
-  const options = {};
   useEffect(() => {
     const observer = new IntersectionObserver(handleObserver, options);
-  });
+    if (intersectRef.current) observer.observe(intersectRef.current);
+    return () => observer.disconnect();
+  }, [handleObserver]);
   return (
     <>
       <div id="container">

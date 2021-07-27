@@ -15,7 +15,6 @@ export const getCommentData = async (page) => {
         _limit: LIMIT,
       },
     });
-    console.log(res.data);
     return res.data;
   } catch (error) {
     console.error(error);

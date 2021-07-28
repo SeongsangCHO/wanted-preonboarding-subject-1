@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { getCommentData } from "./api/getCommentData";
 import useIntersectObserver from "./hooks/useIntersectObserver";
-import InfiniteScroll from "./components/InfiniteScroll";
+import CommentList from "./components/CommentList";
 
 function App() {
   const [page, setPage] = useState(1);
@@ -32,7 +32,7 @@ function App() {
   }, [isIntersect, isLastPage]);
   return (
     <div className="container">
-      <InfiniteScroll data={commentList} />
+      <CommentList data={commentList} />
       {!isLastPage && (
         <div id="intersectElement" ref={intersectRef}>
           Loading...
